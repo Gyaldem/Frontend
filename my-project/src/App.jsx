@@ -2,7 +2,9 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import React, { useState } from "react";
 import Login from "./pages/login";
-import Sidebar from "./components/sidebar";
+// import Sidebar from "../Components/Sidebar";
+import Judge from "./pages/Judge";
+import SpaceCreation from "./pages/SpaceCreation";
 import Judges from "./pages/judges";
 
 export default function App() {
