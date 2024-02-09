@@ -1,0 +1,88 @@
+import React, { useState } from "react";
+import LogoGDG from "../img/logoGdg.svg";
+import Monument from "../img/monument.svg";
+import LogoutIcon from "../img/logout.svg";
+import CloseIcon from "../img/close.svg";
+import OpenIcon from "../img/open.svg";
+
+const Sidebar = ({ elements }) => {
+  const [activeElement, setActiveElement] = useState(null);
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleClick = (element) => {
+    setActiveElement(element.link);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleLogout = () => {
+    // Handle logout logic here
+  };
+
+  return (
+    <>
+      <div
+        className={`h-screen w-64 bg-white text-black absolute top-0 left-0 flex flex-col shadow-md transition-all duration-500 ${
+          isOpen ? "" : "transform translate-x-full"
+        }`}
+        style={{ transform: isOpen ? "translate(0, 0)" : "translate(-100%, 0)", zIndex: 10 }}
+      >
+        <div className="absolute top-0 right-0 m-4 text-white">
+          <button onClick={handleClose}>
+            <img src={CloseIcon} alt="Close" className="h-6 w-6" />
+          </button>
+        </div>
+        <div className="flex justify-center mb-10">
+          <img src={LogoGDG} alt="LogoGDG" className="h-5 w-auto mt-20" />
+        </div>
+        <img
+          src={Monument}
+          alt="Monument"
+          className="absolute bottom-12 w-50"
+          style={{ marginRight: "20px", opacity: "0.3" }}
+        />
+        <div className="absolute bottom-0 my-3 pr-5 w-full text-center">
+          <button
+            onClick={handleLogout}
+            className="flex items-center justify-center w-full"
+          >
+            <img src={LogoutIcon} alt="Logout" className="h-6 w-6 mr-1" />
+            Logout
+          </button>
+        </div>
+        <div className="p-4">
+          <ul>
+            {elements.map((element, index) => (
+              <li
+                key={index}
+                className={`mb-2 py-1.5 pl-2 cursor-pointer transition duration-300 ${
+                  activeElement === element.link
+                    ? "font-bold bg-gray rounded-md shadow-md"
+                    : "hover:shadow-md"
+                }`}
+                onClick={() => handleClick(`element${index + 1}`)}
+              >
+                <a href={element.link}>{element.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      {!isOpen && (
+        <div className="absolute top-5 left-0 m-10 text-white" style={{ zIndex: 5 }}>
+          <button onClick={handleOpen}>
+            <img src={OpenIcon} alt="Open" className="h-6 w-6" />
+          </button>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Sidebar;
