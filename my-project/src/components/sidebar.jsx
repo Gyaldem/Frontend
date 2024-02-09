@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import { useLocation } from "react-router-dom";
 import LogoGDG from "../img/logoGdg.svg";
 import Monument from "../img/monument.svg";
 import LogoutIcon from "../img/logout.svg";
 import CloseIcon from "../img/close.svg";
 import OpenIcon from "../img/open.svg";
 
-const Sidebar = ({ elements, isOpen, toggleSidebar }) => {
-  const [activeElement, setActiveElement] = useState(null);
 
-  const handleClick = (element) => {
-    setActiveElement(element.link);
-  };
-
+const Sidebar = ({ elements, isOpen, toggleSidebar}) => {
   const handleLogout = () => {
     // Handle logout logic here
+  };
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const handleClick = (element) => {
+    localStorage.setItem('activeElement', element.title);
+    window.location.href = element.link
   };
 
   return (
@@ -28,8 +31,8 @@ const Sidebar = ({ elements, isOpen, toggleSidebar }) => {
             <img src={CloseIcon} alt="Close" className="h-6 w-6" />
           </button>
         </div>
-        <div className="flex justify-center mb-10">
-          <img src={LogoGDG} alt="LogoGDG" className="w-auto h-5 mt-20" />
+        <div className="flex justify-center mt-5 mb-5">
+          <img src={LogoGDG} alt="LogoGDG" className="w-auto h-5 mt-10" />
         </div>
         <img
           src={Monument}
@@ -37,7 +40,7 @@ const Sidebar = ({ elements, isOpen, toggleSidebar }) => {
           className="absolute bottom-12 w-50"
           style={{ marginRight: "20px", opacity: "0.3" }}
         />
-        <div className="absolute bottom-0 w-full pr-5 my-3 text-center">
+        <div className="absolute bottom-0 w-full pr-5 my-2 text-center">
           <button
             onClick={handleLogout}
             className="flex items-center justify-center w-full"
@@ -51,11 +54,12 @@ const Sidebar = ({ elements, isOpen, toggleSidebar }) => {
             {elements.map((element, index) => (
               <li
                 key={index}
-                className={`mb-2 py-1.5 pl-2 cursor-pointer transition duration-300 rounded-md ${activeElement === element.link
+                className={`mb-2 py-1.5 pl-2 cursor-pointer transition duration-300 rounded-md ${currentPath === element.link
                   ? "font-bold bg-gray shadow-md"
                   : "hover:shadow-md"
                   }`}
-                onClick={() => handleClick(`element${index + 1}`)}
+                  onClick={() => handleClick(element)}
+
               >
                 <a href={element.link}>{element.title}</a>
               </li>
