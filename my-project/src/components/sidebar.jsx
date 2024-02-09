@@ -5,20 +5,11 @@ import LogoutIcon from "../img/logout.svg";
 import CloseIcon from "../img/close.svg";
 import OpenIcon from "../img/open.svg";
 
-const Sidebar = ({ elements }) => {
+const Sidebar = ({ elements, isOpen, toggleSidebar }) => {
   const [activeElement, setActiveElement] = useState(null);
-  const [isOpen, setIsOpen] = useState(true);
 
   const handleClick = (element) => {
     setActiveElement(element.link);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
-  const handleOpen = () => {
-    setIsOpen(true);
   };
 
   const handleLogout = () => {
@@ -34,7 +25,7 @@ const Sidebar = ({ elements }) => {
         style={{ transform: isOpen ? "translate(0, 0)" : "translate(-100%, 0)", zIndex: 10 }}
       >
         <div className="absolute top-0 right-0 m-4 text-white">
-          <button onClick={handleClose}>
+          <button onClick={toggleSidebar}>
             <img src={CloseIcon} alt="Close" className="h-6 w-6" />
           </button>
         </div>
@@ -76,7 +67,7 @@ const Sidebar = ({ elements }) => {
       </div>
       {!isOpen && (
         <div className="absolute top-5 left-0 m-10 text-white" style={{ zIndex: 5 }}>
-          <button onClick={handleOpen}>
+          <button onClick={toggleSidebar}>
             <img src={OpenIcon} alt="Open" className="h-6 w-6" />
           </button>
         </div>
