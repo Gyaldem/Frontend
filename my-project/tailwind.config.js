@@ -8,12 +8,15 @@ export default {
       colors: {
         white: '#FFFFFF',
         orange: '#FF8600',
-        first: '#617BFF',
+        first: '#AEB8FE',
         second: '#617BFF',
-        third: '#92A4FF',
+        third: '#27187E',
         gray: '#F2F4FF',
       },
     },
+    fontFamily: {
+      body: ['Roboto'],
+    }
   },
   plugins: [],
 }
