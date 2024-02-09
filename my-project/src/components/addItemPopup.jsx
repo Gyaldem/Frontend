@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Menu } from "@headlessui/react"; 
 import DropdownIcon from "../img/dropDown.svg"; 
 
-const AddJudgePopup = ({ onClose, onAdd }) => {
+const AddItemPopup = ({ onClose, onAdd, itemTypeLabel }) => { 
   const options = [
     { value: "option1", label: "Option 1" },
     { value: "option2", label: "Option 2" },
@@ -16,8 +16,8 @@ const AddJudgePopup = ({ onClose, onAdd }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newJudge = { name, email, linkedin, department };
-    onAdd(newJudge);
+    const newItem = { name, email, linkedin, department }; 
+    onAdd(newItem);
     setName("");
     setEmail("");
     setLinkedin("");
@@ -38,8 +38,7 @@ const AddJudgePopup = ({ onClose, onAdd }) => {
     }
   };
 
-  // Disable the submit button if there's an error in the LinkedIn URL input
-  const isAddJudgeDisabled = linkedinError !== "";
+  const isAddItemDisabled = linkedinError !== ""; 
 
   return (
     <div
@@ -56,10 +55,10 @@ const AddJudgePopup = ({ onClose, onAdd }) => {
         </span>
 
         <div className="flex justify-center mb-8">
-          <h2 className="text-xl font-semibold">Add Judge</h2>
+          <h2 className="text-xl font-semibold">Add {itemTypeLabel}</h2>
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
+        <div className="mb-4">
             <input
               type="text"
               value={name}
@@ -124,10 +123,10 @@ const AddJudgePopup = ({ onClose, onAdd }) => {
 
           <button
             type="submit"
-            className={`mt-4 bg-second text-white font-bold py-2 px-4 rounded w-full ${isAddJudgeDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
-            disabled={isAddJudgeDisabled}
+            className={`mt-8 bg-second text-white font-bold py-2 px-4 rounded w-full ${isAddItemDisabled ? 'cursor-not-allowed opacity-50' : ''}`}
+            disabled={isAddItemDisabled}
           >
-            Add Judge
+            Add {itemTypeLabel} 
           </button>
         </form>
       </div>
@@ -135,4 +134,4 @@ const AddJudgePopup = ({ onClose, onAdd }) => {
   );
 };
 
-export default AddJudgePopup;
+export default AddItemPopup;

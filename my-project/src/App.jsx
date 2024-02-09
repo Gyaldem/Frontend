@@ -1,4 +1,3 @@
-// App.js
 import '@fortawesome/fontawesome-free/css/all.css';
 import React, { useState } from "react";
 import Login from "./pages/login";
@@ -6,6 +5,7 @@ import Sidebar from "./components/sidebar";
 import Judge from "./pages/Judge";
 import SpaceCreation from "./pages/SpaceCreation";
 import Judges from "./pages/judges";
+import Mentors from './pages/mentors';
 
 export default function App() {
   const sidebarElements = [
@@ -23,8 +23,7 @@ export default function App() {
   return (
     <div className="flex full-screen">
       <Sidebar elements={sidebarElements} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <Judges isOpen={isSidebarOpen} />
-
+      <Mentors isOpen={isSidebarOpen} />
     </div>
   );
 }
