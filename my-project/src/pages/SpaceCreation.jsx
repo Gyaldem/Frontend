@@ -1,6 +1,5 @@
 import React from "react";
 import NavMentor from "../Components/NavMentor";
-import Equipe from "../Components/Equipe";
 
 function SpaceCreation({ row, col }) {
     const generateEquipes = () => {
@@ -10,8 +9,10 @@ function SpaceCreation({ row, col }) {
             for (let j = 0; j < col; j++) {
                 const equipeNum = i * col + j + 1;
                 rowEquipes.push(
-                    <div className="flex flex-wrap mx-4">
-                        <Equipe key={equipeNum} num={equipeNum} />
+                    <div className="mx-4 float-end">
+                        <div key={equipeNum} className="flex items-center justify-center w-20 h-20 text-center rounded-2xl bg-first">
+                            Team{equipeNum}
+                        </div>
                     </div>
                 );
             }
@@ -31,7 +32,7 @@ function SpaceCreation({ row, col }) {
             <NavMentor />
             <span className="px-10"> Mentor's Space </span>
             <div className="flex content-center justify-center">
-                <div className="mt-4">
+                <div className="mt-4 ">
                     {generateEquipes()}
                 </div>
             </div>
