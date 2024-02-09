@@ -61,9 +61,9 @@ const Sidebar = ({ elements }) => {
             {elements.map((element, index) => (
               <li
                 key={index}
-                className={`mb-2 py-1.5 pl-2 cursor-pointer transition duration-300 ${
+                className={`mb-2 py-1.5 pl-2 cursor-pointer transition duration-300 rounded-md ${
                   activeElement === element.link
-                    ? "font-bold bg-gray rounded-md shadow-md"
+                    ? "font-bold bg-gray shadow-md"
                     : "hover:shadow-md"
                 }`}
                 onClick={() => handleClick(`element${index + 1}`)}
