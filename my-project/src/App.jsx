@@ -4,11 +4,13 @@ import Sidebar from "./Components/sidebar";
 import Spaces from './pages/spaces';
 import Judges from './pages/judges';
 import Mentors from './pages/mentors';
+import Mentor from "./Components/Mentor";
 import Header from "./Components/header";
 // import SubmissionBoard from "./pages/submissionBoard";
 import Challenge from "./pages/Challenge";
 import Judge from "./pages/Judge";
 import Team from "./Components/Team";
+import SpaceCreation from "./pages/SpaceCreation";
 
 export default function App() {
   const sidebarElements = [
@@ -56,6 +58,7 @@ export default function App() {
             <Route path="/challenge2" element={<Challenge team={"Team2"} />} />
             <Route path="/challenge3" element={<Challenge team={"Team3"} />} />
             <Route path="/challeng4" element={<Challenge team={"Team4"} />} />
+            <Route path="/Class" element={<SpaceCreation row={7} col={7}/>} />
 
             <Route path="/overview" element={<Overview />} />
             {/* <Route path="/submission-board" element={<SubmissionBoard isOpen={isSidebarOpen} />} /> */}
