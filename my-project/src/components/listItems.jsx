@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Item from "./item"; 
 import AddItemPopup from "./addItemPopup"; 
-import Plus from "../img/Plus.svg";
+import Plus from "../img/plus.svg";
 
 const ListItems = ({ isOpen, items, addItem, deleteItem, itemName }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
