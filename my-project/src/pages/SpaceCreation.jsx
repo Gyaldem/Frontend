@@ -1,5 +1,5 @@
 import React from "react";
-import NavMentor from "../components/NavMentor";
+import NavMentor from "../Components/NavMentor";
 
 function SpaceCreation({ row, col }) {
     const generateEquipes = () => {

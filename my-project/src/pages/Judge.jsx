@@ -1,7 +1,7 @@
 import React from "react";
-import Team from "../components/Team";
+import Team from "../Components/Team";
 import Logo from '../img/logo.svg';
-import Sidebar from "../Components/sidebar";
+import Sidebar from "../components/sidebar";
 
 function Judge({ teams, Challenge }) {
     const generateTeams = () => {
