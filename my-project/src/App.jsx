@@ -24,7 +24,8 @@ export default function App() {
   return (
     <div className="flex full-screen">
       <Sidebar elements={sidebarElements} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <Mentors isOpen={isSidebarOpen} />
-    </div>
+      {/* <Mentors isOpen={isSidebarOpen} /> */}
+      <Login/>
+          </div>
   );
 }

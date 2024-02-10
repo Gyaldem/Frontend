@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import NavMentor from "../components/NavMentor";
 
 function SpaceCreation({ row, col }) {
