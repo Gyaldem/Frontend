@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Item from "./item"; // Assuming you have a generic Item component
-import AddItemPopup from "./addItemPopup"; // Assuming you have a generic AddItemPopup component
+import Item from "./item"; 
+import AddItemPopup from "./addItemPopup"; 
 import Plus from "../img/plus.svg";
 
 const ListItems = ({ isOpen, items, addItem, deleteItem, itemName }) => {
@@ -25,7 +25,7 @@ const ListItems = ({ isOpen, items, addItem, deleteItem, itemName }) => {
 
   return (
     <div
-      className={`container pl-10 py-8 mt-20 ${isOpen ? "ml-64 " : "ml-auto"}`}
+      className={`container pl-10 py-8 mt-10 ${isOpen ? "ml-64 " : "ml-auto"}`}
     >
       <button
         className="bg-gray hover:shadow-md text-black font-semibold py-2 px-4 rounded-md flex items-center justify-center"
