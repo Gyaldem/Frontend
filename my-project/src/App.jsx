@@ -5,6 +5,7 @@ import Spaces from './pages/spaces';
 import Judges from './pages/judges';
 import Mentors from './pages/mentors';
 import Header from "./components/header";
+import SubmissionBoard from "./pages/submissionBoard";
 
   export default function App() {
 const sidebarElements = [
@@ -42,7 +43,7 @@ const sidebarElements = [
             <Sidebar elements={sidebarElements} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
             <Routes>
               <Route path="/overview" element={<Overview />} />
-              <Route path="/submission-board" element={<SubmissionBoard />} />
+              <Route path="/submission-board" element={<SubmissionBoard isOpen={isSidebarOpen}/>} />
               <Route path="/participants" element={<Spaces isOpen={isSidebarOpen} />} />
               <Route path="/judges" element={<Judges isOpen={isSidebarOpen}/>} />
               <Route path="/mentors" element={<Mentors isOpen={isSidebarOpen} />} />
@@ -56,4 +57,3 @@ const sidebarElements = [
 
 // Define components for each route
 const Overview = () => <div>Overview Page</div>;
-const SubmissionBoard = () => <div>Submission Board Page</div>;
