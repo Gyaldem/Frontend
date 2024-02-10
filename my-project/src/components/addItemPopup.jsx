@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import  { useState } from "react";
 import { Menu } from "@headlessui/react"; 
 import DropdownIcon from "../img/dropDown.svg"; 
 
@@ -10,13 +11,13 @@ const AddItemPopup = ({ onClose, onAdd, itemTypeLabel }) => {
   ];
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [linkedin, setLinkedin] = useState("");
-  const [department, setDepartment] = useState("");
+  const [linkedinUrl, setLinkedin] = useState("");
+  const [specialization, setDepartment] = useState("");
   const [linkedinError, setLinkedinError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newItem = { name, email, linkedin, department }; 
+    const newItem = { name, email, linkedinUrl, specialization }; 
     onAdd(newItem);
     setName("");
     setEmail("");
@@ -81,7 +82,7 @@ const AddItemPopup = ({ onClose, onAdd, itemTypeLabel }) => {
           <div className="mb-4">
             <input
               type="text"
-              value={linkedin}
+              value={linkedinUrl}
               placeholder="LinkedIn URL"
               onChange={handleLinkedinChange}
               className={`w-full shadow-md rounded-lg px-3 py-2.5 focus:outline-none ${linkedinError ? 'border-red-500' : ''}`}
@@ -97,7 +98,7 @@ const AddItemPopup = ({ onClose, onAdd, itemTypeLabel }) => {
               <div>
                 <Menu.Button className="flex justify-between items-center w-full bg-white shadow-md rounded-lg px-3 py-2 focus:outline-none">
                   <span className="text-black">
-                    {department ? department : "Select a department"}
+                    {specialization ? specialization : "Select a department"}
                   </span>
                   <img src={DropdownIcon} alt="Dropdown" className="h-5 w-5" />
                 </Menu.Button>

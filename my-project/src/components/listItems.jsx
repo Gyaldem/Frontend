@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import  { useState } from "react";
 import Item from "./item"; // Assuming you have a generic Item component
 import AddItemPopup from "./addItemPopup"; // Assuming you have a generic AddItemPopup component
 import Plus from "../img/plus.svg";

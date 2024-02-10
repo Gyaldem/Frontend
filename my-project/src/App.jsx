@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import '@fortawesome/fontawesome-free/css/all.css';
 import React, { useState } from "react";
 import Login from "./pages/login";
