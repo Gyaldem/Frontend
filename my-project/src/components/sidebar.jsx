@@ -19,7 +19,7 @@ const Sidebar = ({ elements, isOpen, toggleSidebar }) => {
   return (
     <>
       <div
-        className={`h-screen w-64 ${isOpen} bg-white text-black absolute top-0 left-0 flex flex-col shadow-md transition-all duration-500 ${isOpen ? "" : "transform translate-x-full"
+        className={`h-screen w-64 ${!isOpen} bg-white text-black absolute top-0 left-0 flex flex-col shadow-md transition-all duration-500 ${isOpen ? "" : "transform translate-x-full"
           }`}
         style={{ transform: isOpen ? "translate(0, 0)" : "translate(-100%, 0)", zIndex: 10 }}
       >

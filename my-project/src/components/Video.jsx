@@ -1,9 +1,9 @@
 import { React, useState } from "react";
-import GithubIcon from '../img/github.svg';
+import VideoIcon from '../img/Play.svg';
 import ForrWard from '../img/Forward.svg'
 
 
-function Github() {
+function Video() {
     const [count, setCount] = useState(0);
 
     const handleInputChange = (event) => {
@@ -23,12 +23,14 @@ function Github() {
     const decrementCount = () => {
         setCount(prevCount => (prevCount > 0 ? prevCount - 1 : 0));
     };
+
+
     return (
         <div className="flex flex-col items-center justify-between p-8 h-52 w-fit bg-gray rounded-xl shadow-custom">
             <div className="flex flex-col items-center justify-center ">
-                <img src={GithubIcon} alt="Github" className="w-10" />
-                <span>Github Link</span>
-                <img src={ForrWard} alt="Forward" className="w-8 cursor-pointer" />
+                <img src={VideoIcon} alt="Github" className="w-8" />
+                <span>Video play</span>
+                <img src={ForrWard} alt="Forward" className="w-8 cursor" />
             </div>
             <div className="flex flex-row border rounded border-third">
                 <span className="w-6 h-6 text-center cursor-pointer" onClick={decrementCount}> - </span>
@@ -41,4 +43,4 @@ function Github() {
     )
 }
 
-export default Github
+export default Video

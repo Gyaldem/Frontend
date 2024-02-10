@@ -8,22 +8,28 @@ import Judges from "./pages/judges";
 import Mentors from './pages/mentors';
 
 export default function App() {
-  const sidebarElements = [
-    { title: "Overview", link: "/" },
-    { title: "Submission board", link: "/sub" },
-    { title: "Participants space", link: "/part" },
-    { title: "Judges space", link: "/judg" }
+  const mentors = [
+    { nom: "Malek", dep: 'Frontend', email: "la_malek@esi.dz" },
+    { nom: "Hind", dep: 'Backend', email: "la_rezzoug@esi.dz" },
+    { nom: "Lylia", dep: 'UI', email: "ll_aouinine@esi.dz" },
   ];
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
+  //   const sidebarElements = [
+  //     { title: "Overview", link: "/" },
+  //     { title: "Submission board", link: "/sub" },
+  //     { title: "Participants space", link: "/part" },
+  //     { title: "Judges space", link: "/judg" }
+  //   ];
   return (
-    <div className="flex full-screen">
-      <Sidebar elements={sidebarElements} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <Mentors isOpen={isSidebarOpen} />
-    </div>
+
+    // <Submission mentors={mentors} />
+    // <Sub link={"Github File"} />
+    // <Login />
+    // <Submission2/>
+    <FenetreSub/>
+
   );
-}
+};
+
+
+
