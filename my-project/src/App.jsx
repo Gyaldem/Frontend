@@ -8,7 +8,7 @@ import Header from "./components/header";
 import SubmissionBoard from "./pages/submissionBoard";
 
   export default function App() {
-const sidebarElements = [
+  const sidebarElements = [
     { title: "Overview", link: "/overview" },
     { title: "Submission board", link: "/submission-board" },
     { title: "Participants space", link: "/participants" },
