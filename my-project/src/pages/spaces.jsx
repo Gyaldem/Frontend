@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Plus from "../img/plus.svg";
+import Plus from "../img/Plus.svg";
 import AddSpacePopup from "../components/addSpacePopup";
 import Space from "../components/space";
 

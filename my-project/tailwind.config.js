@@ -17,9 +17,9 @@ export default {
     fontFamily: {
       body: ['Roboto'],
     },
-    boxShadow: {
-      custom: '0px 2px 5px 0px rgba(0, 0, 0, 0.1)', // Définition de l'ombre personnalisée
-    },
+    // boxShadow: {
+    //   custom: '0px 2px 5px 0px rgba(0, 0, 0, 0.1)', // Définition de l'ombre personnalisée
+    // },
   },
   plugins: [],
 }

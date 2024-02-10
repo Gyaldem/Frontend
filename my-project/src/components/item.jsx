@@ -1,6 +1,6 @@
 import React from "react";
 import LinkedinIcon from "../img/linkedin.svg";
-import TrashIcon from "../img/cross.svg";
+import TrashIcon from "../img/Cross.svg";
 
 const Item = ({ item, onDelete, isOpen }) => {
     return (

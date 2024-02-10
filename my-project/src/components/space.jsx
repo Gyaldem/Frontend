@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Plus from "../img/plus.svg";
+import Plus from "../img/Plus.svg";
 import Edit from "../img/edit.svg";
 import Delete from "../img/delete.svg";
 import AddParticipantPopup from "./addParticipantPopup";
