@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ListItems from "../components/listItems";
+import ListItems from "../Components/listItems";
 
 const Judges = ({ isOpen }) => {
   const [judges, setJudges] = useState([]);

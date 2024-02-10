@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Plus from '../img/Plus.svg';
+import Plus from '../img/plus.svg';
 
 function Feedback() {
     const [isInputVisible, setIsInputVisible] = useState(false);

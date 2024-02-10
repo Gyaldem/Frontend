@@ -31,7 +31,7 @@ function Submission2({ mentors }) {
                     </div>
                 </div>
                 <div className="absolute mt-6 cursor-pointer right-1/4">
-                    <Submit/>
+                    <Submit />
                 </div>
             </div>
         </div>

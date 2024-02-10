@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Plus from "../img/plus.svg";
-import AddSpacePopup from "../components/addSpacePopup";
-import Space from "../components/space";
+import AddSpacePopup from "../Components/addSpacePopup";
+import Space from "../Components/space";
 
 const Spaces = ({ isOpen }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

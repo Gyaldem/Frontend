@@ -1,7 +1,7 @@
 import React from "react";
 import Team from "../Components/Team";
 import Logo from '../img/logo.svg';
-import Sidebar from "../components/sidebar";
+import Sidebar from "../Components/sidebar";
 import Coefficient from "../Components/Coefficient";
 import Github from "../Components/Github";
 import Video from "../Components/Video";
@@ -11,10 +11,10 @@ import Feedback from "../Components/Feedback";
 function Challenge({ team }) {
 
     const sidebarElements = [
-        { title: "Challenge 1", link: "/" },
-        { title: "Chanllenge 2", link: "/challenge 1" },
-        { title: "Challenge 3", link: "/challenge 2" },
-        { title: "Challenge 4", link: "/challenge 3" }
+        { title: "Challenge 1", link: "/challenge1" },
+        { title: "Challenge 2", link: "/challenge2" },
+        { title: "Challenge 3", link: "/challenge3" },
+        { title: "Challenge 4", link: "/challenge4" }
     ];
 
     return (
