@@ -1,13 +1,11 @@
-import React from "react";
-// import Sidebar from "../Components/Sidebar";
-import Challenge from "./pages/Challenge";
-import Mentor from "./Components/Mentor";
-import Submission from "./pages/Submission";
-import Sub from "./Components/Sub";
-import Submission2 from "./pages/Submission2";
+import '@fortawesome/fontawesome-free/css/all.css';
+import React, { useState } from "react";
 import Login from "./pages/login";
-import Submit from "./Components/Submit";
-import FenetreSub from "./Components/fenetreSub";
+import Sidebar from "./components/sidebar";
+import Judge from "./pages/Judge";
+import SpaceCreation from "./pages/SpaceCreation";
+import Judges from "./pages/judges";
+import Mentors from './pages/mentors';
 
 export default function App() {
   const mentors = [
