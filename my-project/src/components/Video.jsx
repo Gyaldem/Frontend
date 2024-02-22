@@ -26,7 +26,7 @@ function Video() {
 
 
     return (
-        <div className="flex flex-col items-center justify-between p-8 h-52 w-fit bg-gray rounded-xl shadow-custom">
+        <div className="flex flex-col items-center justify-between p-8 mx-4 mt-8 h-52 w-fit bg-gray rounded-xl shadow-custom">
             <div className="flex flex-col items-center justify-center ">
                 <img src={VideoIcon} alt="Github" className="w-8" />
                 <span>Video play</span>

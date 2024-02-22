@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Plus from "../img/plus.svg";
-import AddSpacePopup from "../Components/addSpacePopup";
-import Space from "../Components/space";
+import AddSpacePopup from "../components/addSpacePopup";
+import Space from "../components/space";
 
 const Spaces = ({ isOpen }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,10 +30,10 @@ const Spaces = ({ isOpen }) => {
   return (
     <div className={`container pl-10 py-8 mt-10 ${isOpen ? "ml-64 " : "ml-auto"}`}>
       <button
-        className="bg-gray hover:shadow-md text-black font-semibold py-2 px-4 rounded-md flex items-center justify-center"
+        className="flex items-center justify-center px-4 py-2 font-semibold text-black rounded-md bg-gray hover:shadow-md"
         onClick={openModal}
       >
-        <img src={Plus} alt="Add" className="h-6 w-6 mr-1" />
+        <img src={Plus} alt="Add" className="w-6 h-6 mr-1" />
         Add space
       </button>
       {isModalOpen && <AddSpacePopup onClose={closeModal} onAdd={addItemHandler} />}

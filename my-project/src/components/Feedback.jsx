@@ -14,7 +14,7 @@ function Feedback() {
     };
 
     return (
-        <div className="flex flex-col w-3/4 px-6 py-4 lg:w-2/3 md:w-2/3 sm:3/4 bg-gray rounded-2xl">
+        <div className="flex flex-col px-6 py-4 lg:w-[65%] md:w-[80%] sm:w-[90%] bg-gray rounded-2xl w-[100%]">
             <span className="font-bold lg:text-xl md:text-xl text-third">Feedback</span>
             <div className="flex items-center mt-4">
                 {isInputVisible ? (

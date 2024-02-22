@@ -5,12 +5,17 @@ import Monument from "../img/monument.svg";
 import LogoutIcon from "../img/logout.svg";
 import CloseIcon from "../img/close.svg";
 import OpenIcon from "../img/open.svg";
+import { useNavigate } from "react-router-dom";
 
 
 const Sidebar = ({ elements, isOpen, toggleSidebar}) => {
+
+  const navigate = useNavigate()
+  
   const handleLogout = () => {
-    // Handle logout logic here
+      navigate(`/`);
   };
+  
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -28,7 +33,7 @@ const Sidebar = ({ elements, isOpen, toggleSidebar}) => {
       >
         <div className="absolute top-0 right-0 m-4 text-white">
           <button onClick={toggleSidebar}>
-            <img src={CloseIcon} alt="Close" className="h-6 w-6" />
+            <img src={CloseIcon} alt="Close" className="w-6 h-6" />
           </button>
         </div>
         <div className="flex justify-center mt-5 mb-5">
@@ -45,7 +50,7 @@ const Sidebar = ({ elements, isOpen, toggleSidebar}) => {
             onClick={handleLogout}
             className="flex items-center justify-center w-full"
           >
-            <img src={LogoutIcon} alt="Logout" className="w-6 h-6 mr-1" />
+            <img src={LogoutIcon} alt="Logout" className="w-6 h-6 mr-1" onClick={handleLogout}/>
             Logout
           </button>
         </div>
@@ -68,9 +73,9 @@ const Sidebar = ({ elements, isOpen, toggleSidebar}) => {
         </div>
       </div>
       {!isOpen && (
-        <div className="absolute top-5 left-0 m-10 text-white" style={{ zIndex: 5 }}>
+        <div className="absolute left-0 m-10 text-white top-5" style={{ zIndex: 5 }}>
           <button onClick={toggleSidebar}>
-            <img src={OpenIcon} alt="Open" className="h-6 w-6" />
+            <img src={OpenIcon} alt="Open" className="w-6 h-6" />
           </button>
         </div>
       )}

@@ -1,30 +1,46 @@
 import React from "react";
-import Team from "../Components/Team";
-import Logo from '../img/logo.svg';
-import Sidebar from "../Components/sidebar";
-import Coefficient from "../Components/Coefficient";
-import Github from "../Components/Github";
-import Video from "../Components/Video";
-import Figma from "../Components/Figma";
-import Feedback from "../Components/Feedback";
+import { useState, useEffect } from "react";
+import Sidebar from "../components/Sidebar";
+import Coefficient from "../components/Coefficient";
+import Github from "../components/Github";
+import Video from "../components/Video";
+import Figma from "../components/Figma";
+import Feedback from "../components/Feedback";
+import Header from "../components/header";
 
 function Challenge({ team }) {
 
     const sidebarElements = [
         { title: "Challenge 1", link: "/challenge1" },
-        { title: "Challenge 2", link: "/challenge2" },
+        { title: "Chanllenge 2", link: "/challenge2" },
         { title: "Challenge 3", link: "/challenge3" },
         { title: "Challenge 4", link: "/challenge4" }
     ];
 
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [activeElement, setActiveElement] = useState(null); // Initialize activeElement state
+  
+    const toggleSidebar = () => {
+      setIsSidebarOpen(!isSidebarOpen);
+    };
+  
+    // useEffect hook to retrieve activeElement from localStorage on component mount
+    useEffect(() => {
+      const storedActiveElement = localStorage.getItem('activeElement');
+      if (storedActiveElement) {
+        setActiveElement(storedActiveElement);
+      }
+      localStorage.removeItem('activeElement');
+    }, []);
+
     return (
         <div className="w-full h-full">
-            <Sidebar elements={sidebarElements} />
+            <Header isOpen={isSidebarOpen} activeElement={activeElement}/> 
+            <Sidebar elements={sidebarElements} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />            
             <div className="relative w-full p-10">
-                <img src={Logo} alt="Logo" className="absolute right-0 pr-10" />
-                <div className="flex flex-col items-center justify-center w-full pt-24 space-y-10 ">
+                <div className="flex flex-col items-center justify-center w-full space-y-10 ">
                     <Coefficient team={team} />
-                    <div className="flex flex-row space-x-6 ">
+                    <div className="flex flex-row flex-wrap items-center justify-center">
                         <Github />
                         <Video />
                         <Figma />

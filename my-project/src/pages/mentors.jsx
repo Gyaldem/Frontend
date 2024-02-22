@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ListItems from "../Components/listItems";
+import ListItems from "../components/listItems";
 
 const Mentors = ({ isOpen }) => {
   const [mentors, setMentors] = useState([]);

@@ -1,10 +1,11 @@
 import React from "react";
-import Mentor from "../Components/Mentor";
+import { useState, useEffect } from "react";
+import Mentor from "../components/Mentor";
 import Logo from '../img/logo.svg';
-import Sidebar from "../Components/sidebar";
+import Sidebar from "../components/Sidebar";
 import Modifier from "../img/modifier.svg";
-import Sub from "../Components/Sub";
-import Submit from "../Components/Submit";
+import Sub from "../components/Sub";
+import Submit from "../components/Submit";
 
 function Submission2({ mentors }) {
 
@@ -15,9 +16,25 @@ function Submission2({ mentors }) {
         { title: "Call Mentor", link: "/Call" }
     ];
 
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [activeElement, setActiveElement] = useState(null); // Initialize activeElement state
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
+
+    // useEffect hook to retrieve activeElement from localStorage on component mount
+    useEffect(() => {
+        const storedActiveElement = localStorage.getItem('activeElement');
+        if (storedActiveElement) {
+            setActiveElement(storedActiveElement);
+        }
+        localStorage.removeItem('activeElement');
+    }, []);
+
     return (
         <div className="w-full">
-            <Sidebar elements={sidebarElements} />
+            <Sidebar elements={sidebarElements} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
             <div className="relative w-full">
                 <div className="h-40 p-10 bg-gray">
                     <img src={Logo} alt="Logo" className="absolute right-0 pr-10" />
@@ -30,7 +47,7 @@ function Submission2({ mentors }) {
                         <Sub link={"Video link"} />
                     </div>
                 </div>
-                <div className="absolute mt-6 cursor-pointer right-1/4">
+                <div className="flex justify-center mt-6">
                     <Submit />
                 </div>
             </div>
