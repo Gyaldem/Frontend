@@ -1,9 +1,10 @@
 import React from "react";
-import Team from "../Components/Team";
-import Logo from '../img/logo.svg';
-import Sidebar from "../components/sidebar";
+import { useState, useEffect } from "react";
+import Team from "../components/Team";
+import Sidebar from "../components/Sidebar";
+import Header from "../components/header"
 
-function Judge({ teams, Challenge }) {
+function Judge({ teams }) {
     const generateTeams = () => {
         return teams.map((team, index) => (
             <div key={index} className="flex justify-center my-5">
@@ -13,20 +14,36 @@ function Judge({ teams, Challenge }) {
     };
 
     const sidebarElements = [
-        { title: "Challenge 1", link: "/" },
-        { title: "Chanllenge 2", link: "/challenge 1" },
-        { title: "Challenge 3", link: "/challenge 2" },
-        { title: "Challenge 4", link: "/challenge 3" }
+        { title: "Challenge 1", link: "/challenge1" },
+        { title: "Chanllenge 2", link: "/challenge2" },
+        { title: "Challenge 3", link: "/challenge3" },
+        { title: "Challenge 4", link: "/challenge4" }
     ];
+
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [activeElement, setActiveElement] = useState(null); // Initialize activeElement state
+  
+    const toggleSidebar = () => {
+      setIsSidebarOpen(!isSidebarOpen);
+    };
+  
+    // useEffect hook to retrieve activeElement from localStorage on component mount
+    useEffect(() => {
+      const storedActiveElement = localStorage.getItem('activeElement');
+      if (storedActiveElement) {
+        setActiveElement(storedActiveElement);
+      }
+      localStorage.removeItem('activeElement');
+    }, []);
 
     return (
         <div className="w-full">
-            <Sidebar elements={sidebarElements} />
+            <Header isOpen={isSidebarOpen} activeElement={"Teams"}/> 
+            <Sidebar elements={sidebarElements} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
             <div className="relative w-full p-10">
-                <img src={Logo} alt="Logo" className="absolute right-0 pr-10" />
                 <div className="flex justify-center w-full">
-                    <div className="w-[100%] pt-20">
-                        <span>{"Challenge"}</span>
+                    <div className="w-[100%]">
+                        {/* <span>{"Challenge"}</span> */}
                         {generateTeams()}
                     </div>
                 </div>

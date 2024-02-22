@@ -24,7 +24,7 @@ function Github() {
         setCount(prevCount => (prevCount > 0 ? prevCount - 1 : 0));
     };
     return (
-        <div className="flex flex-col items-center justify-between p-8 h-52 w-fit bg-gray rounded-xl shadow-custom">
+        <div className="flex flex-col items-center justify-between p-8 mx-4 mt-8 h-52 w-fit bg-gray rounded-xl shadow-custom">
             <div className="flex flex-col items-center justify-center ">
                 <img src={GithubIcon} alt="Github" className="w-10" />
                 <span>Github Link</span>

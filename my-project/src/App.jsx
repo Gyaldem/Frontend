@@ -1,59 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Sidebar from "./components/sidebar";
-import Spaces from './pages/spaces';
-import Judges from './pages/judges';
-import Mentors from './pages/mentors';
-import Header from "./components/header";
-import SubmissionBoard from "./pages/submissionBoard";
+import Challenge from "./pages/Challenge";
+import Judge from "./pages/Judge";
+import SpaceCreation from "./pages/SpaceCreation";
+import Login from "./pages/login";
+import MentorsJudges from "./pages/MentorsJudges";
+import Submission2 from "./pages/Submission2";
 
-  export default function App() {
-  const sidebarElements = [
-    { title: "Overview", link: "/overview" },
-    { title: "Submission board", link: "/submission-board" },
-    { title: "Participants space", link: "/participants" },
-    { title: "Judges space", link: "/judges" },
-    { title: "Mentors space", link: "/mentors" }
+export default function App() {
+
+
+  const teams = [
+    { num: 1, etat: "Progress" },
+    { num: 2, etat: "Progress" },
+    { num: 3, etat: "Progress" },
+    { num: 4, etat: "Progress" }
   ];
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [activeElement, setActiveElement] = useState(null); // Initialize activeElement state
+  const mentors = [
+    { nom: "Lylia", dep:"UX/UI", email: "ll_aouinine@esi.dz" },
+    { nom: "Amina", dep:"Front web" , email: "la_malek@esi.dz" },
+    { nom: "Dyna", dep:"Front web" , email: "ld_alismail@esi.dz" },
+  ];
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/judge" element={<Judge teams={teams} />} />
+        <Route path="/challenge1" element={<Challenge team={"Team1"} />} />
+        <Route path="/challenge2" element={<Challenge team={"Team2"} />} />
+        <Route path="/challenge3" element={<Challenge team={"Team3"} />} />
+        <Route path="/challeng4" element={<Challenge team={"Team4"} />} />
+        <Route path="/Class" element={<SpaceCreation row={6} col={4} />} />
+        <Route path="/mentors&judges" element={<MentorsJudges mentors={mentors}/>} />
+        <Route path="/overview" element={<Overview />} />
+        <Route path="/submission" element={<Submission2 />} />
+      </Routes>
+    </Router>
+  );
+}
 
-  // useEffect hook to retrieve activeElement from localStorage on component mount
-  useEffect(() => {
-    const storedActiveElement = localStorage.getItem('activeElement');
-    if (storedActiveElement) {
-      setActiveElement(storedActiveElement);
-    }
-    localStorage.removeItem('activeElement');
-  }, []);
-
-  
-
-  
-    return (
-      <Router>
-        <div className="flex flex-col full-screen"> 
-          <Header isOpen={isSidebarOpen} activeElement={activeElement}/> 
-          <div className="flex flex-1"> 
-            <Sidebar elements={sidebarElements} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-            <Routes>
-              <Route path="/overview" element={<Overview />} />
-              <Route path="/submission-board" element={<SubmissionBoard isOpen={isSidebarOpen}/>} />
-              <Route path="/participants" element={<Spaces isOpen={isSidebarOpen} />} />
-              <Route path="/judges" element={<Judges isOpen={isSidebarOpen}/>} />
-              <Route path="/mentors" element={<Mentors isOpen={isSidebarOpen} />} />
-            </Routes>
-          </div>
-        </div>
-      </Router>
-    );
-  }
-  
 
 // Define components for each route
 const Overview = () => <div>Overview Page</div>;
