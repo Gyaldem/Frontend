@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Team from "../components/Team";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/sidebar";
 import Header from "../components/header"
 
 function Judge({ teams }) {

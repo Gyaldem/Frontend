@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Mentor from "../components/Mentor";
 import Logo from '../img/logo.svg';
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/sidebar";
 import Modifier from "../img/modifier.svg";
 import Header from "../components/header";
 
